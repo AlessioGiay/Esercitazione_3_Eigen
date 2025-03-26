@@ -44,6 +44,7 @@ list(APPEND LinearSystem_INCLUDE ${LinearSystem_includes})
 ################################################################################
 add_executable(${PROJECT_NAME}
       main.cpp
+      function.hpp
       ${LinearSystem_SOURCES}
       ${LinearSystem_HEADERS})
 
