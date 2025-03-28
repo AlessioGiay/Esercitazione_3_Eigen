@@ -22,10 +22,10 @@
 	
 	// Trovo y da Ly=Pb
 	Vector2d Pb = P * b;
-	Vector2d y = L.triangularView<UnitLower>().solve(Pb);
-	
+	Vector2d y = L.triangularView<Lower>().solve(Pb); // triangularView<UnitLower>()
+
 	// Trovo x da Ux=y
-	Vector2d x = U.triangularView<Upper>().solve(y);
+	Vector2d x = U.triangularView<Upper>().solve(y); // triangularView<Upper>()
 	
 	return x;
 }
