@@ -13,19 +13,19 @@
 	// Ottengo P
 	Matrix2d P = lu.permutationP();
 	
-	// Ottengo L, prendo i valori della diagonale principale e quelli sopra
+	// Ottengo L, prima la definisco come identità per avere gli 1 sulla diagonale principale e poi copio gli altri vaolri al di sotto
 	Matrix2d L = Matrix2d::Identity();
 	L.triangularView<StrictlyLower>() = lu.matrixLU();
 	
-	// Ottengo U, prima la definisco come identità per avere gli 1 sulla diagonale principale e poi copio gli altri vaolri al di sotto
+	// Ottengo U, prendo i valori della diagonale principale e quelli sopra
 	Matrix2d U = lu.matrixLU().triangularView<Upper>();
 	
 	// Trovo y da Ly=Pb
 	Vector2d Pb = P * b;
-	Vector2d y = L.triangularView<Lower>().solve(Pb); // triangularView<UnitLower>()
+	Vector2d y = L.triangularView<Lower>().solve(Pb);
 
 	// Trovo x da Ux=y
-	Vector2d x = U.triangularView<Upper>().solve(y); // triangularView<Upper>()
+	Vector2d x = U.triangularView<Upper>().solve(y); 
 	
 	return x;
 }
