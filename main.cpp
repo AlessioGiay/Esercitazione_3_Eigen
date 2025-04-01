@@ -1,12 +1,15 @@
 #include <iostream>
+#include <iomanip>
 #include "Eigen/Eigen"
 #include "function.hpp"
 
 using namespace std;
 using namespace Eigen;
 
+
 int main()
 {
+	cout<<scientific;
 	// Vettore soluzione
 	Vector2d sol;
 	sol << -1.0e0,-1.0e00;
@@ -25,10 +28,10 @@ int main()
 	double ErrPALU1 = ErrRel(xPALU1,sol);
 	double ErrQR1 = ErrRel(xQR1,sol);
 	
-	cout<<"La soluzione del sistema 1 ottenuta con PALU è\n"<<xPALU1<<endl;
-	cout<<"L'errore relativo rispetto alla soluzione esatta è "<<ErrPALU1<<endl;
-	cout<<"La soluzione del sistema 1 ottenuta con QR è\n"<<xQR1<<endl;
-	cout<<"L'errore relativo rispetto alla soluzione esatta è "<<ErrQR1<<endl;
+	cout<<"La soluzione del sistema 1 ottenuta con PALU è\n"<<setprecision(1)<<"["<<xPALU1[0]<<","<<xPALU1[1]<<"]"<<endl;
+	cout<<"L'errore relativo rispetto alla soluzione esatta è: "<<setprecision(4)<<ErrPALU1<<endl;
+	cout<<"\nLa soluzione del sistema 1 ottenuta con QR è\n"<<setprecision(1)<<"["<<xQR1[0]<<","<<xQR1[1]<<"]"<<endl;
+	cout<<"L'errore relativo rispetto alla soluzione esatta è: "<<setprecision(4)<<ErrQR1<<endl;
 	
 	// Secondo sistema
 	Matrix2d A2; 
@@ -44,10 +47,10 @@ int main()
 	double ErrPALU2 = ErrRel(xPALU2,sol);
 	double ErrQR2 = ErrRel(xQR2,sol);
 	
-	cout<<"\nLa soluzione del sistema 2 ottenuta con PALU è\n"<<xPALU2<<endl;
-	cout<<"L'errore relativo rispetto alla soluzione esatta è "<<ErrPALU2<<endl;
-	cout<<"La soluzione del sistema 2 ottenuta con QR è\n"<<xQR2<<endl;
-	cout<<"L'errore relativo rispetto alla soluzione esatta è "<<ErrQR2<<endl;
+	cout<<"\nLa soluzione del sistema 2 ottenuta con PALU è\n"<<setprecision(1)<<"["<<xPALU2[0]<<","<<xPALU2[1]<<"]"<<endl;
+	cout<<"L'errore relativo rispetto alla soluzione esatta è: "<<setprecision(4)<<ErrPALU2<<endl;
+	cout<<"\nLa soluzione del sistema 2 ottenuta con QR è\n"<<setprecision(1)<<"["<<xQR2[0]<<","<<xQR2[1]<<"]"<<endl;
+	cout<<"L'errore relativo rispetto alla soluzione esatta è: "<<setprecision(4)<<ErrQR2<<endl;
 		
 	// Terzo sistema
 	Matrix2d A3; 
@@ -63,9 +66,9 @@ int main()
 	double ErrPALU3 = ErrRel(xPALU3,sol);
 	double ErrQR3 = ErrRel(xQR3,sol);
 	
-	cout<<"\nLa soluzione del sistema 3 ottenuta con PALU è\n"<<xPALU3<<endl;
-	cout<<"L'errore relativo rispetto alla soluzione esatta è "<<ErrPALU3<<endl;
-	cout<<"La soluzione del sistema 3 ottenuta con QR è\n"<<xQR3<<endl;
-	cout<<"L'errore relativo rispetto alla soluzione esatta è "<<ErrQR3<<endl;	
+	cout<<"\nLa soluzione del sistema 3 ottenuta con PALU è\n"<<setprecision(1)<<"["<<xPALU3[0]<<","<<xPALU3[1]<<"]"<<endl;
+	cout<<"L'errore relativo rispetto alla soluzione esatta è: "<<setprecision(4)<<ErrPALU3<<endl;
+	cout<<"\nLa soluzione del sistema 3 ottenuta con QR è\n"<<setprecision(1)<<"["<<xQR3[0]<<","<<xQR3[1]<<"]"<<endl;
+	cout<<"L'errore relativo rispetto alla soluzione esatta è: "<<setprecision(4)<<ErrQR3<<endl;	
     return 0;
 }
